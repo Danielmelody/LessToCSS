@@ -146,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Context.h" />
+    <ClInclude Include="expression.h" />
     <ClInclude Include="File.h" />
     <ClInclude Include="Selector.h" />
     <ClInclude Include="stdafx.h" />
@@ -154,6 +155,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Context.cpp" />
+    <ClCompile Include="expression.cpp" />
     <ClCompile Include="File.cpp" />
     <ClCompile Include="LessCompiler.cpp" />
     <ClCompile Include="Selector.cpp" />

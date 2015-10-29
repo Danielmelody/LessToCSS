@@ -12,7 +12,15 @@ int main()
 	file.read("test.less");
 	for (auto sentence : file.getSentences()) {
 		//cout << sentence << endl;
+		SyntaxAnalysisor::buildVariableSystem(sentence);
+	}
+	for (auto sentence : file.getSentences()) {
+		//cout << sentence << endl;
 		SyntaxAnalysisor::parseSentence(sentence);
+	}
+
+	for (auto sentence : file.getSentences()) {
+		SyntaxAnalysisor::mixinAfterParsing(sentence);
 	}
 
 	for (auto selector : Context::selectors) {

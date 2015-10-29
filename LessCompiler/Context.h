@@ -11,22 +11,40 @@ class Context{
 private:
 	Context();
 	Context* _parent = nullptr;
+	Context* _bottom = nullptr;
 	string _fullName;
 	static Context* _current,* _root;
-	map<string, string> _variables, _attrs;
+	static map<string, map<string, string>> _variables;
+	map<string, string> _attrs;
+	map<string, string> _expressions;
+	vector<pair<string, string>> _args;
+	map<int, vector<string>> _blocks;
 	string getVariableInCurrentContext(string key);
-	void setVariableInCurrentContext(string key, string value);
 	
 public:
 
-	static string parseElement(string element);
+	void registeBlock(string blockCont);
+
+	void calculateAllExpression(Context* beMixing);
+
+	vector<string> getBlocks(int index);
+
+	void setExpression(string key, string value);
+
+	void passArgs(vector<string> realArgs);
+
 	static std::map<string, Context*> selectors;
 	static Context* closeCurrent();
 	static Context* current();
+	static void setCurrent(string fullName);
 	static  Context* root();
+	
+	void setArgs(vector<pair<string, string>> args);
+	void mixin(string otherSelector);
+	void preHandleMixinVariable(string otherSelector, vector<string> args);
 	string getSelectorName();
+	void setVariableInCurrentContext(string key, string value);
 	void setAttr(string key, string value);
-	void setVariable(string key, string value);
 	string getVariable(string key);
 	string getAttr(string key);
 	map<string, string>& getAttrs();

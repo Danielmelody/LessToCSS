@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <stdlib.h>
+#include "regex"
 #include "File.h"
 
 using namespace std;
@@ -80,13 +81,39 @@ vector<string>& File::getSentences() {
 
 
 void File::genarateCSS(map<string, Context*> selectors) {
+
+	int selectorIndex = 0;
+
+	for (auto blockSentence : selectors["root"]->getBlocks(selectorIndex)) {
+		css.append(blockSentence + "\n");
+	}
+
 	for (auto selector : selectors) {
-		string header = selector.first + "{\n";
-		for (auto attribute : selector.second->getAttrs()) {
-			header.append(attribute.first + ":" + attribute.second+"\n");
+		int attrIndex = 0;
+		string header;
+		if (selector.first != "root") {
+			header = selector.first + "{\n";
+			for (auto blockSentence : selector.second->getBlocks(attrIndex)) {
+				header.append(blockSentence + "\n");
+			}
+
+			for (auto attribute : selector.second->getAttrs()) {
+				attrIndex++;
+
+				header.append(attribute.first + ":" + attribute.second + ";\n");
+
+				for (auto blockSentence : selector.second->getBlocks(attrIndex)) {
+					header.append(blockSentence + "\n");
+				}
+			}
+			header.append("}\n");
+			css.append(header);
+			selectorIndex++;
+			for (auto blockSentence : selectors["root"]->getBlocks(selectorIndex)) {
+				css.append(blockSentence + "\n");
+			}
 		}
-		header.append("}\n");
-		css.append(header);
+
 	}
 
 	ofstream geneStream(fileName + ".css");
