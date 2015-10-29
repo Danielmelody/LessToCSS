@@ -30,9 +30,6 @@
     <ClInclude Include="File.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Selector.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="SyntaxAnalysisor.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -51,9 +48,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="File.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Selector.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="SyntaxAnalysisor.cpp">
