@@ -6,7 +6,6 @@
 #include "File.h"
 
 using namespace std;
-using namespace tr1;
 
 File::File()
 {
@@ -117,6 +116,7 @@ void File::genarateCSS(map<string, Context*> selectors) {
 	}
 
 	ofstream geneStream(fileName + ".css");
+	cout<<"genarateCSS"<<endl;
 	geneStream << css.c_str() << endl;
 	geneStream.close();
 }

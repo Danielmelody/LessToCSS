@@ -4,31 +4,39 @@
 #include <stdlib.h>
 #include "File.h"
 #include "SyntaxAnalysisor.h"
+#include <regex>
 
-int main()
+using namespace std;
+
+int main(int argc,char *argv[])
 {
-	File file;
-	Context::root();
-	file.read("test.less");
-	for (auto sentence : file.getSentences()) {
+	string fileName;
+	if(argc > 1){
+		fileName = string(argv[1]);
+	
+		File file;
+		Context::root();
+		file.read(fileName);
+		cout<<fileName<<endl;
+		for (auto sentence : file.getSentences()) {
 		//cout << sentence << endl;
-		SyntaxAnalysisor::buildVariableSystem(sentence);
-	}
-	for (auto sentence : file.getSentences()) {
+			SyntaxAnalysisor::buildVariableSystem(sentence);
+		}
+		for (auto sentence : file.getSentences()) {
 		//cout << sentence << endl;
-		SyntaxAnalysisor::parseSentence(sentence);
+			SyntaxAnalysisor::parseSentence(sentence);
+		}
+		
+		for (auto sentence : file.getSentences()) {
+			SyntaxAnalysisor::mixinAfterParsing(sentence);
+		}
+
+		file.genarateCSS(Context::selectors);
+	}
+	else{
+		cout<<"usage: toCSS <file name>.less"<<endl;
 	}
 
-	for (auto sentence : file.getSentences()) {
-		SyntaxAnalysisor::mixinAfterParsing(sentence);
-	}
-
-	for (auto selector : Context::selectors) {
-		cout << selector.first.c_str();
-	}
-
-	file.genarateCSS(Context::selectors);
-	system("PAUSE");
     return 0;
 }
 

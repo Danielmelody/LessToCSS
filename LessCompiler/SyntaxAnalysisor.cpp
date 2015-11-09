@@ -8,7 +8,6 @@
 #include "expression.h"
 
 using namespace std;
-using namespace std::tr1;
 
 SyntaxAnalysisor::SyntaxAnalysisor()
 {
@@ -285,7 +284,7 @@ vector<string> SyntaxAnalysisor::handleRealArgs(std::string attrs)
 	return valueVec;
 }
 
-vector<pair<string, string>> SyntaxAnalysisor::handleAttrs(std::string attrs){
+vector<pair<string, string> > SyntaxAnalysisor::handleAttrs(std::string attrs){
 	vector<string> expreVector;
 	string expression;
 	for (auto ch : attrs){
@@ -307,8 +306,8 @@ vector<pair<string, string>> SyntaxAnalysisor::handleAttrs(std::string attrs){
 		expression.clear();
 	}
 
-	vector<pair<string, string>> attrsVector;
-	for each (string expre in expreVector){
+	vector<pair<string, string> > attrsVector;
+	for (string expre : expreVector){
 		regex colon("[^:]+");
 		string key, value;
 		sregex_iterator iter(expre.begin(), expre.end(), colon);
@@ -324,7 +323,7 @@ vector<pair<string, string>> SyntaxAnalysisor::handleAttrs(std::string attrs){
 	return attrsVector;
 }
 
-map<string, string> SyntaxAnalysisor::genArgMap(vector<pair<string, string>> argVec)
+map<string, string> SyntaxAnalysisor::genArgMap(vector<pair<string, string> > argVec)
 {
 	map<string, string> result;
 	for (auto argPair : argVec) {

@@ -14,11 +14,11 @@ private:
 	Context* _bottom = nullptr;
 	string _fullName;
 	static Context* _current,* _root;
-	static map<string, map<string, string>> _variables;
+	static map<string, map<string, string> > _variables;
 	map<string, string> _attrs;
 	map<string, string> _expressions;
-	vector<pair<string, string>> _args;
-	map<int, vector<string>> _blocks;
+	vector<pair<string, string> > _args;
+	map<int, vector<string> > _blocks;
 	string getVariableInCurrentContext(string key);
 	
 public:
@@ -73,7 +73,7 @@ public:
 	* @param:    vector<pair<string
 	* @param:    string>> args
 	*/
-	void setArgs(vector<pair<string, string>> args);
+	void setArgs(vector<pair<string, string> > args);
 	/** Context::mixin
 	
 	* @note:

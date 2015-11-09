@@ -82,7 +82,7 @@ private:
 	* @return:   vector<pair<string, string>>
 	* @param:    std::string attrs
 	*/
-	static vector<pair<string, string>> handleAttrs(std::string attrs);
+	static vector<pair<string, string> > handleAttrs(std::string attrs);
 	/** SyntaxAnalysisor::genArgMap
 	
 	* @note:    convert args vector to map
@@ -90,7 +90,7 @@ private:
 	* @param:    vector<pair<string
 	* @param:    string>> argVec
 	*/
-	static map<string, string> genArgMap(vector<pair<string, string>> argVec);
+	static map<string, string> genArgMap(vector<pair<string, string>  > argVec);
 public:
 	/** SyntaxAnalysisor::eraseSpace
 	
