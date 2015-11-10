@@ -1,0 +1,17 @@
+
+.filter(@percent: 80, @float:0.8){
+   filter:alpha(opacity=@percent);
+   -moz-opacity:@float;
+   -khtml-opacity: @float;
+   opacity: @float;
+}
+#test7{
+  .c1{
+    color:red;
+    .filter;
+  }  
+  .c2{
+    color:green;
+    .filter(50,0.5);
+  }
+}
