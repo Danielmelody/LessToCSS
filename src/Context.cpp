@@ -122,7 +122,6 @@ void Context::registeBlock(string blockContent){
 
 void Context::calculateAllExpression(Context* beMixing)
 {
-	cout << "context fullName:" + beMixing->_fullName << endl;
 	for (auto exPair : _expressions) {
 
 		string value = SyntaxAnalysisor::getExpressionValue(exPair.second, beMixing);
@@ -155,7 +154,6 @@ void Context::passArgs(vector<string> realArgs){
 		_expressions[first] = realArgs[i];
 	}
 	calculateAllExpression(this);
-	cout << "context's fullName:" + _fullName + "\n";
 }
 
 

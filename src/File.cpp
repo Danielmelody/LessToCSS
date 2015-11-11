@@ -116,7 +116,7 @@ void File::genarateCSS(map<string, Context*> selectors) {
 	}
 
 	ofstream geneStream(fileName + ".css");
-	cout<<"genarateCSS"<<endl;
+	cout<<"genarate CSS file "+fileName+".css"<< endl;
 	geneStream << css.c_str() << endl;
 	geneStream.close();
 }

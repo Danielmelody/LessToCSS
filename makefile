@@ -10,8 +10,10 @@ THIS_MAKEFILE=$(abspath $(DIR_BIN))
 CXXFLAGS= -std=c++11 
 ${BIN_TARGET}: ${DIR_SRC}/*.cpp
 	g++ -o $@ $^ -std=c++11
-	echo "export PATH=$(abspath $(DIR_BIN)):${PATH}" >> ~/.bash_profile
-	source ~/.bash_profile
+	echo 'compile successfully, start install ....'
+	sudo cp $(BIN_TARGET) /usr/local/bin
+	echo 'done'
+	echo 'usage: toCSS <file name>.less'
 clean:
 	rm *.o
 
