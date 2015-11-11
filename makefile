@@ -5,9 +5,13 @@ DIR_BIN = ./bin
 
 BIN_TARGET = ${DIR_BIN}/toCSS
 
+THIS_MAKEFILE=$(abspath $(DIR_BIN)) 
+
 CXXFLAGS= -std=c++11 
 ${BIN_TARGET}: ${DIR_SRC}/*.cpp
 	g++ -o $@ $^ -std=c++11
+	echo "export PATH=$(abspath $(DIR_BIN)):${PATH}" >> ~/.bash_profile
+	source ~/.bash_profile
 clean:
 	rm *.o
 
