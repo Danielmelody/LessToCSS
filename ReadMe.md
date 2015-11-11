@@ -7,8 +7,7 @@
 	git clone https://github.com/Danielhu229/LessToCSS
 	cd LessToCSS
  	make
- 	source ~/.bash_profile
-
+ 	
 
 ### Usage:
 
