@@ -6,7 +6,8 @@
 	git clone https://github.com/Danielhu229/LessToCSS
 	cd LessToCSS
  	make
- 	
+    sudo cp bin/ /usr/local/bin
+
 
 ### Usage:
 
