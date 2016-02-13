@@ -1,5 +1,5 @@
 language: cpp
-script: ./makefile
+script: make && make test
 compiler:
     - clang
     - gcc
