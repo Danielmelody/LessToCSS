@@ -1,16 +1,43 @@
-#LessToCSS
+# LessToCSS![](https://travis-ci.org/Danielhu229/LessToCSS.svg?branch=master)
 
-![](https://travis-ci.org/Danielhu229/LessToCSS.svg?branch=master)
 A simple less compiler for unix/linux/OSX environment
 
 ### Build:
 
-	git clone https://github.com/Danielhu229/LessToCSS
-	cd LessToCSS
-    make
-    sudo cp bin/ /usr/local/bin
+---
+
+``` 
+git clone https://github.com/Danielhu229/LessToCSS
+cd LessToCSS
+make
+```
+
+
+
+### Install
+
+---
+
+``` bash
+./install.sh
+```
+
+**NOTE**: this script will export an environment variable to your ~/.bash_profile 
+
+if you dont want this, type  
+
+``` bash
+./<your-local-LessToCSS-repository>/bin/toCSS <another-less-file>
+```
+
+to use
+
 
 
 ### Usage:
 
-	toCSS xxx.less
+---
+
+``` 
+toCSS xxx.less
+```
