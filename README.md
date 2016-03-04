@@ -1,6 +1,6 @@
 # LessToCSS![](https://travis-ci.org/Danielhu229/LessToCSS.svg?branch=master)
 
-A simple less compiler for unix/linux/OSX environment
+A simple less compiler for unix-like environment
 
 ### Build:
 
